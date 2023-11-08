@@ -1,0 +1,30 @@
+<form [formGroup]="frmGift">
+    <p class="bold">נא למלא את כל הפרטים</p>
+
+    <div class="row form-group">
+        <div class="control-label col-1">
+            <label>שם</label>
+        </div>
+        <div class="control-label col-4">
+            <input type="text" class="form-control" [(ngModel)]="copyGift.name" formControlName="name"
+                [ngClass]="{'has-error':!frmGift.controls['name'].valid && frmGift.controls['name'].touched}"  />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="control-label col col-1"><label>מחיר</label></div>
+        <div class="control-label col col-4">
+            <input type="number" [(ngModel)]="copyGift.price" class="form-control" formControlName="price"
+            [ngClass]="{'has-error':!frmGift.controls['price'].valid && frmGift.controls['price'].touched}" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="control-label col col-1"><label>תורם</label></div>
+        <div class="control-label col col-4">
+            <input type="text" [(ngModel)]="copyGift.donor" class="form-control" formControlName="donor"
+                [ngClass]="{'has-error':!frmGift.controls['donor'].valid && frmGift.controls['donor'].touched}" />
+        </div>
+    </div>
+    <button [disabled]="frmGift.invalid" class="btn btn-primary" type="submit" (click)="save()">שמירה</button>
+</form>

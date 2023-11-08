@@ -1,0 +1,8 @@
+.form-group{
+    padding-bottom: 10px;
+}
+
+.ng-invalid .ng-toutched{
+    border-color: tomato;
+    border-width: 2px;
+}

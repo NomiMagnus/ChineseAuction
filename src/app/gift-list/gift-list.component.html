@@ -1,0 +1,20 @@
+<table>
+    <th>קוד</th>
+    <th>שם</th>
+    <th>מחיר</th>
+    <th>תורם</th>
+    <tr (click)="selectedIndex = i" *ngFor="let item of listGift; let i = index"
+        [ngClass]="{'selected':i == selectedIndex}">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.donor}}</td>
+        <td><button class="btn btn-primary" (click)="delete(item)">מחיקה</button></td>
+        <td><app-modal ><app-edit-gift [(gift)]="listGift[selectedIndex]" [isNew]="false" (giftChange)="editGift($event)"></app-edit-gift></app-modal></td>
+    </tr>
+</table>
+<button class="btn btn-primary" (click)="isNew=true"> הוספה</button>
+<div *ngIf="isNew">
+<app-edit-gift [isNew]="true" [id]="selectedIndex" (addGift)="addNewGift($event)" ></app-edit-gift>
+
+</div>

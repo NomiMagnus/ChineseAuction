@@ -1,0 +1,9 @@
+td, th{
+    border-style: groove;
+    border-width: 1px;
+    padding: 5px;
+}
+
+.selected{
+    background-color: rgb(255, 0, 157);
+}
